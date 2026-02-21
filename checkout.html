@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - LIVΛS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">LIVΛS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">
+                            <span class="cart-icon">
+                                <i class="bi bi-bag"></i>
+                                <span class="cart-badge" id="cartBadge">0</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <h2 class="section-title">Checkout</h2>
+            
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Shipping Form -->
+                    <div class="checkout-form">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--primary-dark);">Shipping Information</h3>
+                        <form id="shippingForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>ZIP Code</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Country</label>
+                                <input type="text" class="form-control" required>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Billing Form -->
+                    <div class="checkout-form">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--primary-dark);">Billing Information</h3>
+                        <form id="billingForm">
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="sameAsShipping" checked> Same as shipping address
+                                </label>
+                            </div>
+                            <div id="billingFields" style="display: none;">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>First Name</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Last Name</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>City</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>ZIP Code</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Payment Options -->
+                    <div class="checkout-form">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--primary-dark);">Payment Method</h3>
+                        <div class="payment-options">
+                            <div class="payment-option selected" data-payment="card">
+                                <i class="bi bi-credit-card"></i> Credit/Debit Card
+                            </div>
+                            <div class="payment-option" data-payment="paypal">
+                                <i class="bi bi-paypal"></i> PayPal
+                            </div>
+                            <div class="payment-option" data-payment="apple">
+                                <i class="bi bi-apple"></i> Apple Pay
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="col-lg-4">
+                    <div class="cart-summary">
+                        <h3 style="margin-bottom: 1.5rem; color: var(--primary-dark);">Order Summary</h3>
+                        <div id="checkoutItems">
+                            <!-- Order items will be dynamically loaded -->
+                        </div>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="checkoutSubtotal">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span id="checkoutShipping">$10.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax</span>
+                            <span id="checkoutTax">$0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <strong class="summary-total">Total</strong>
+                            <strong class="summary-total" id="checkoutTotal">$0.00</strong>
+                        </div>
+                        <button class="btn btn-primary" id="placeOrderBtn" style="width: 100%; margin-top: 1.5rem; padding: 1rem; font-size: 1.1rem;">
+                            Place Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Popup -->
+    <div class="success-popup" id="successPopup">
+        <div class="success-icon">✓</div>
+        <h2>Order Placed Successfully!</h2>
+        <p>Thank you for your purchase. You will receive a confirmation email shortly.</p>
+        <a href="index.html" class="btn btn-primary mt-3">Continue Shopping</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 footer-section">
+                        <h3>LIVΛS</h3>
+                        <p>Redefining presence through premium fashion. We believe in timeless elegance and authentic style that speaks to your individuality.</p>
+                    </div>
+                    <div class="col-md-2 footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="products.html">Products</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="cart.html">Cart</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 footer-section">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li><a href="products.html?category=men">Men</a></li>
+                            <li><a href="products.html?category=women">Women</a></li>
+                            <li><a href="products.html?category=accessories">Accessories</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 footer-section">
+                        <h3>Contact</h3>
+                        <p>123 Fashion Avenue<br>New York, NY 10001<br>United States</p>
+                        <p>Email: hello@livas.com</p>
+                        <p>Phone: +1 (555) 123-4567</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 LIVΛS. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script>
+        // Checkout page specific script
+        document.getElementById('sameAsShipping').addEventListener('change', function() {
+            const billingFields = document.getElementById('billingFields');
+            billingFields.style.display = this.checked ? 'none' : 'block';
+        });
+
+        // Payment option selection
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+
+        // Load order summary from SessionStorage or Cart
+        window.addEventListener('DOMContentLoaded', () => {
+            const checkoutData = sessionStorage.getItem('checkoutData');
+            if (checkoutData) {
+                try {
+                    const data = JSON.parse(checkoutData);
+                    displayCheckoutSummary(data);
+                } catch (error) {
+                    console.error('Error parsing checkout data:', error);
+                    loadCheckoutFromCart();
+                }
+            } else {
+                // Load from cart if no checkout data
+                loadCheckoutFromCart();
+            }
+        });
+
+        function displayCheckoutSummary(data) {
+            const checkoutItems = document.getElementById('checkoutItems');
+            checkoutItems.innerHTML = '';
+            
+            let subtotal = 0;
+            data.items.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'summary-row';
+                itemDiv.innerHTML = `
+                    <div>
+                        <strong>${item.name}</strong><br>
+                        <small>${item.size} / ${item.color} x ${item.quantity}</small>
+                    </div>
+                    <span>$${itemTotal.toFixed(2)}</span>
+                `;
+                checkoutItems.appendChild(itemDiv);
+            });
+            
+            const shipping = 10;
+            const tax = subtotal * 0.08;
+            const total = subtotal + shipping + tax;
+            
+            document.getElementById('checkoutSubtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('checkoutShipping').textContent = `$${shipping.toFixed(2)}`;
+            document.getElementById('checkoutTax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('checkoutTotal').textContent = `$${total.toFixed(2)}`;
+        }
+
+        function loadCheckoutFromCart() {
+            if (typeof getCart === 'function') {
+                const cart = getCart();
+                if (cart.length > 0) {
+                    const checkoutData = {
+                        items: cart
+                    };
+                    sessionStorage.setItem('checkoutData', JSON.stringify(checkoutData));
+                    displayCheckoutSummary(checkoutData);
+                } else {
+                    // Redirect to cart if empty
+                    alert('Your cart is empty. Redirecting to products page.');
+                    window.location.href = 'products.html';
+                }
+            } else {
+                // Wait a bit for cart.js to load
+                setTimeout(loadCheckoutFromCart, 100);
+            }
+        }
+
+        // Place order
+        document.getElementById('placeOrderBtn').addEventListener('click', function() {
+            const shippingForm = document.getElementById('shippingForm');
+            if (shippingForm.checkValidity()) {
+                // Show success popup
+                document.getElementById('successPopup').classList.add('show');
+                
+                // Clear cart and checkout data
+                if (typeof clearCart === 'function') {
+                    clearCart();
+                }
+                sessionStorage.removeItem('checkoutData');
+                
+                // Update cart badge
+                if (typeof updateCartBadge === 'function') {
+                    updateCartBadge();
+                }
+            } else {
+                shippingForm.reportValidity();
+            }
+        });
+    </script>
+</body>
+</html>

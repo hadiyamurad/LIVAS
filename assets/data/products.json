@@ -1,0 +1,229 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Classic Tailored Blazer",
+      "category": "men",
+      "price": 299.99,
+      "description": "A timeless tailored blazer crafted from premium wool blend. Perfect for both formal occasions and smart casual wear. Features a modern slim fit, notch lapel, and functional button cuffs.",
+      "images": [
+        "assets/images/men1.webp",
+        "assets/images/men1-1.webp",
+        "assets/images/men1-2.webp",
+        "assets/images/men1-3.webp"
+      ],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "colors": ["Navy", "Charcoal", "Black"]
+    },
+    {
+      "id": 2,
+      "name": "Premium Denim Jacket",
+      "category": "men",
+      "price": 189.99,
+      "description": "A rugged yet refined denim jacket made from organic cotton. Features a classic trucker design with modern updates including a comfortable fit and premium hardware.",
+      "images": [
+        "assets/images/men2.webp",
+        "assets/images/men2-1.webp",
+        "assets/images/men2-2.webp",
+        "assets/images/men2-3.webp"
+      ],
+      "sizes": ["S", "M", "L", "XL"],
+      "colors": ["Indigo", "Black", "Light Blue"]
+    },
+    {
+      "id": 3,
+      "name": "Luxury Cashmere Sweater",
+      "category": "men",
+      "price": 249.99,
+      "description": "Ultra-soft cashmere sweater in a relaxed fit. Handcrafted with attention to detail, this piece offers exceptional comfort and timeless elegance.",
+      "images": [
+        "assets/images/men3.webp",
+        "assets/images/men3-1.webp",
+        "assets/images/men3-2.webp",
+        "assets/images/men3-3.webp"
+      ],
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "colors": ["Cream", "Navy", "Charcoal"]
+    },
+    {
+      "id": 4,
+      "name": "Slim Fit Chinos",
+      "category": "men",
+      "price": 129.99,
+      "description": "Versatile slim-fit chinos in premium cotton twill. Perfect for the office or weekend wear. Features a modern tapered leg and comfortable stretch.",
+      "images": [
+        "assets/images/men4.webp",
+        "assets/images/men4-1.webp",
+        "assets/images/men4-2.webp",
+        "assets/images/men4-3.webp"
+      ],
+      "sizes": ["28", "30", "32", "34", "36"],
+      "colors": ["Khaki", "Navy", "Olive"]
+    },
+    {
+      "id": 5,
+      "name": "Leather Moto Jacket",
+      "category": "men",
+      "price": 449.99,
+      "description": "Authentic leather moto jacket with a rebellious edge. Crafted from genuine lambskin leather with quilted details and metal hardware for a bold statement.",
+      "images": [
+        "assets/images/men5.webp",
+        "assets/images/men5-1.webp",
+        "assets/images/men5-2.webp",
+        "assets/images/men5-3.webp"
+      ],
+      "sizes": ["S", "M", "L", "XL"],
+      "colors": ["Black", "Brown"]
+    },
+    {
+      "id": 6,
+      "name": "Elegant Midi Dress",
+      "category": "women",
+      "price": 279.99,
+      "description": "A sophisticated midi dress in flowing silk-blend fabric. Features a flattering A-line silhouette, delicate pleating, and a timeless design perfect for any occasion.",
+      "images": [
+        "assets/images/women1.webp",
+        "assets/images/women1-1.webp",
+        "assets/images/women1-2.webp",
+        "assets/images/women1-3.webp"
+      ],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "colors": ["Black", "Navy", "Burgundy"]
+    },
+    {
+      "id": 7,
+      "name": "Designer Blazer",
+      "category": "women",
+      "price": 319.99,
+      "description": "A structured blazer with a modern twist. Tailored to perfection with a slightly oversized fit, this piece adds sophistication to any outfit.",
+      "images": [
+        "assets/images/women2.webp",
+        "assets/images/women2-1.webp",
+        "assets/images/women2-2.webp",
+        "assets/images/women2-3.webp"
+      ],
+      "sizes": ["XS", "S", "M", "L"],
+      "colors": ["Cream", "Black", "Navy"]
+    },
+    {
+      "id": 8,
+      "name": "Silk Wrap Blouse",
+      "category": "women",
+      "price": 199.99,
+      "description": "Luxurious silk wrap blouse with a flattering V-neckline. The wrap design creates an elegant silhouette while the premium fabric ensures comfort and style.",
+      "images": [
+        "assets/images/women3.webp",
+        "assets/images/women3-1.webp",
+        "assets/images/women3-2.webp",
+        "assets/images/women3-3.webp"
+      ],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "colors": ["White", "Blush", "Navy"]
+    },
+    {
+      "id": 9,
+      "name": "High-Waisted Trousers",
+      "category": "women",
+      "price": 169.99,
+      "description": "Tailored high-waisted trousers in premium wool blend. Features a wide-leg silhouette, front pleats, and a polished finish for a professional yet modern look.",
+      "images": [
+        "assets/images/women4.webp",
+        "assets/images/women4-1.webp",
+        "assets/images/women4-2.webp",
+        "assets/images/women4-3.webp"
+      ],
+      "sizes": ["XS", "S", "M", "L"],
+      "colors": ["Black", "Navy", "Cream"]
+    },
+    {
+      "id": 10,
+      "name": "Knit Cardigan",
+      "category": "women",
+      "price": 189.99,
+      "description": "A cozy yet elegant knit cardigan perfect for layering. Made from soft merino wool blend with a relaxed fit and button-front closure.",
+      "images": [
+        "assets/images/women5.webp",
+        "assets/images/women5-1.webp",
+        "assets/images/women5-2.webp",
+        "assets/images/women5-3.webp"
+      ],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "colors": ["Cream", "Navy", "Burgundy"]
+    },
+    {
+      "id": 11,
+      "name": "Leather Crossbody Bag",
+      "category": "accessories",
+      "price": 249.99,
+      "description": "A sophisticated leather crossbody bag crafted from premium Italian leather. Features an adjustable strap, multiple compartments, and a timeless design.",
+      "images": [
+        "assets/images/acc1.webp",
+        "assets/images/acc1-1.webp",
+        "assets/images/acc1-2.webp",
+        "assets/images/acc1-3.webp"
+      ],
+      "sizes": ["One Size"],
+      "colors": ["Black", "Brown", "Cream"]
+    },
+    {
+      "id": 12,
+      "name": "Designer Tote Bag",
+      "category": "accessories",
+      "price": 199.99,
+      "description": "Spacious tote bag in premium canvas and leather trim. Perfect for daily use with reinforced handles and a roomy interior for all your essentials.",
+      "images": [
+        "assets/images/acc2.webp",
+        "assets/images/acc2-1.webp",
+        "assets/images/acc2-2.webp",
+        "assets/images/acc2-3.webp"
+      ],
+      "sizes": ["One Size"],
+      "colors": ["Beige", "Black", "Navy"]
+    },
+    {
+      "id": 13,
+      "name": "Luxury Clutch Bag",
+      "category": "accessories",
+      "price": 179.99,
+      "description": "An elegant evening clutch in satin with metallic accents. Compact yet spacious enough for essentials, perfect for special occasions.",
+      "images": [
+        "assets/images/acc3.webp",
+        "assets/images/acc3-1.webp",
+        "assets/images/acc3-2.webp",
+        "assets/images/acc3-3.webp"
+      ],
+      "sizes": ["One Size"],
+      "colors": ["Black", "Gold", "Silver"]
+    },
+    {
+      "id": 14,
+      "name": "Classic Leather Belt",
+      "category": "accessories",
+      "price": 89.99,
+      "description": "A timeless leather belt with a refined buckle. Crafted from genuine leather with a classic design that complements any outfit.",
+      "images": [
+        "assets/images/acc4.webp",
+        "assets/images/acc4-1.webp",
+        "assets/images/acc4-2.webp",
+        "assets/images/acc4-3.webp"
+      ],
+      "sizes": ["S", "M", "L", "XL"],
+      "colors": ["Black", "Brown", "Tan"]
+    },
+    {
+      "id": 15,
+      "name": "Designer Chain Belt",
+      "category": "accessories",
+      "price": 129.99,
+      "description": "A statement chain belt with an adjustable design. Features premium metal hardware and a modern aesthetic perfect for elevating any look.",
+      "images": [
+        "assets/images/acc5.webp",
+        "assets/images/acc5-1.webp",
+        "assets/images/acc5-2.webp",
+        "assets/images/acc5-3.webp"
+      ],
+      "sizes": ["S", "M", "L"],
+      "colors": ["Gold", "Silver", "Black"]
+    }
+  ]
+}

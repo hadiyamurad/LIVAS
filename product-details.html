@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - LIVΛS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">LIVΛS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">
+                            <span class="cart-icon">
+                                <i class="bi bi-bag"></i>
+                                <span class="cart-badge" id="cartBadge">0</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Details Section -->
+    <section class="product-details-section">
+        <div class="product-details-container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="product-gallery">
+                        <img id="mainImage" src="" alt="Product" class="main-image">
+                        <div class="thumbnail-images" id="thumbnailContainer">
+                            <!-- Thumbnails will be dynamically loaded -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="product-info">
+                        <h1 id="productName"></h1>
+                        <div class="product-price" id="productPrice"></div>
+                        <p class="product-description" id="productDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        
+                        <div class="product-options">
+                            <div class="option-group">
+                                <label>Color</label>
+                                <div class="color-options" id="colorOptions">
+                                    <!-- Color options will be dynamically loaded -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="add-to-cart-section">
+                            <button class="btn btn-primary" id="addToCartBtn" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+                                <span id="addToCartText">Add to Cart</span>
+                                <span id="cartItemCount" style="display: none; margin-left: 0.5rem;">(<span id="itemCount">0</span> items)</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 footer-section">
+                        <h3>LIVΛS</h3>
+                        <p>Redefining presence through premium fashion. We believe in timeless elegance and authentic style that speaks to your individuality.</p>
+                    </div>
+                    <div class="col-md-2 footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="products.html">Products</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="cart.html">Cart</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 footer-section">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li><a href="products.html?category=men">Men</a></li>
+                            <li><a href="products.html?category=women">Women</a></li>
+                            <li><a href="products.html?category=accessories">Accessories</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 footer-section">
+                        <h3>Contact</h3>
+                        <p>123 Fashion Avenue<br>New York, NY 10001<br>United States</p>
+                        <p>Email: hello@livas.com</p>
+                        <p>Phone: +1 (555) 123-4567</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="bi bi-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 LIVΛS. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script>
+    // Product details page specific script
+    let selectedColor = null;
+    let currentProduct = null;
+
+    // Load product details from URL parameter
+    document.addEventListener('DOMContentLoaded', async () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+        
+        if (!productId) {
+            console.error('No product ID provided');
+            document.querySelector('.product-details-section').innerHTML = 
+                '<div class="container text-center"><h2>No product ID provided</h2><p><a href="products.html">Back to Products</a></p></div>';
+            return;
+        }
+        
+        // Wait for products to load
+        let attempts = 0;
+        while (attempts < 20 && (typeof window.allProducts === 'undefined' || window.allProducts.length === 0)) {
+            await new Promise(resolve => setTimeout(resolve, 100));
+            attempts++;
+        }
+        
+        if (window.allProducts && window.allProducts.length > 0) {
+            loadProductDetails(productId);
+        } else {
+            console.error('Products not available');
+            document.querySelector('.product-details-section').innerHTML = 
+                '<div class="container text-center"><h2>Error: Products not loaded</h2><p>Please refresh the page.</p><p><a href="products.html">Back to Products</a></p></div>';
+        }
+    });
+
+    function loadProductDetails(productId) {
+        const products = window.allProducts || [];
+        
+        if (products.length === 0) {
+            throw new Error('No products available');
+        }
+        
+        currentProduct = products.find(p => p.id === productId);
+        
+        if (currentProduct) {
+            displayProductDetails(currentProduct);
+        } else {
+            document.querySelector('.product-details-section').innerHTML = 
+                '<div class="container text-center"><h2>Product not found</h2><p><a href="products.html">Back to Products</a></p></div>';
+        }
+    }
+
+    function displayProductDetails(product) {
+        document.getElementById('productName').textContent = product.name;
+        document.getElementById('productPrice').textContent = `$${product.price.toFixed(2)}`;
+        document.getElementById('productDescription').textContent = product.description;
+        
+        // Set main image
+        const mainImage = document.getElementById('mainImage');
+        mainImage.src = product.images[0];
+        mainImage.alt = product.name;
+        mainImage.onerror = function() {
+            this.src = 'assets/images/placeholder.webp';
+        };
+        
+        // Create exactly 3 thumbnails
+        const thumbnailContainer = document.getElementById('thumbnailContainer');
+        thumbnailContainer.innerHTML = '';
+        
+        // Get first 3 images
+        const thumbnails = product.images.slice(0, 3);
+        
+        thumbnails.forEach((image, index) => {
+            const thumbnailBox = document.createElement('div');
+            thumbnailBox.className = `thumbnail-box ${index === 0 ? 'active' : ''}`;
+            
+            const thumbnailImg = document.createElement('img');
+            thumbnailImg.src = image;
+            thumbnailImg.className = 'thumbnail';
+            thumbnailImg.alt = `${product.name} - View ${index + 1}`;
+            thumbnailImg.onerror = function() {
+                this.src = 'assets/images/placeholder.webp';
+            };
+            
+            thumbnailBox.appendChild(thumbnailImg);
+            
+            thumbnailBox.addEventListener('click', function() {
+                mainImage.style.opacity = '0';
+                setTimeout(() => {
+                    mainImage.src = image;
+                    mainImage.style.opacity = '1';
+                }, 150);
+                
+                document.querySelectorAll('.thumbnail-box').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+            
+            thumbnailContainer.appendChild(thumbnailBox);
+        });
+        
+        // Create color options
+        const colorOptions = document.getElementById('colorOptions');
+        colorOptions.innerHTML = '';
+        
+        product.colors.forEach(color => {
+            const colorOption = document.createElement('div');
+            colorOption.className = 'color-option';
+            colorOption.style.backgroundColor = getColorValue(color);
+            colorOption.title = color;
+            
+            colorOption.addEventListener('click', function() {
+                document.querySelectorAll('.color-option').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedColor = color;
+                updateCartCountDisplay();
+            });
+            
+            colorOptions.appendChild(colorOption);
+        });
+        
+        // Set default color selection
+        if (product.colors.length > 0) {
+            selectedColor = product.colors[0];
+            const firstColorOption = document.querySelector('.color-option');
+            if (firstColorOption) {
+                firstColorOption.classList.add('selected');
+            }
+        }
+        
+        updateCartCountDisplay();
+    }
+
+    function getColorValue(colorName) {
+        const colorMap = {
+            'Black': '#000000', 'Navy': '#001f3f', 'Charcoal': '#36454f',
+            'Cream': '#fffdd0', 'Brown': '#8b4513', 'Indigo': '#4b0082',
+            'Light Blue': '#add8e6', 'Khaki': '#c3b091', 'Olive': '#808000',
+            'White': '#ffffff', 'Blush': '#de5d83', 'Burgundy': '#800020',
+            'Beige': '#f5f5dc', 'Gold': '#ffd700', 'Silver': '#c0c0c0',
+            'Tan': '#d2b48c'
+        };
+        return colorMap[colorName] || '#cccccc';
+    }
+
+    function getCart() {
+        try {
+            return JSON.parse(localStorage.getItem('cart')) || [];
+        } catch (e) {
+            return [];
+        }
+    }
+
+    function updateCartCountDisplay() {
+        if (!currentProduct) return;
+        
+        const cart = getCart();
+        const productInCart = cart.filter(item => 
+            item.id === currentProduct.id && 
+            item.color === selectedColor
+        );
+        
+        const totalItems = productInCart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        
+        const countSpan = document.getElementById('cartItemCount');
+        const itemCountSpan = document.getElementById('itemCount');
+        const addToCartText = document.getElementById('addToCartText');
+        
+        if (totalItems > 0) {
+            itemCountSpan.textContent = totalItems;
+            countSpan.style.display = 'inline';
+            addToCartText.textContent = 'Update Cart';
+        } else {
+            countSpan.style.display = 'none';
+            addToCartText.textContent = 'Add to Cart';
+        }
+    }
+
+    function addToCart(item) {
+        if (!item || !item.id) return;
+        
+        const cart = getCart();
+        const existingItem = cart.find(i => 
+            i.id === item.id && 
+            i.color === item.color
+        );
+        
+        if (existingItem) {
+            existingItem.quantity = (existingItem.quantity || 1) + 1;
+        } else {
+            cart.push({ ...item, quantity: 1 });
+        }
+        
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        // Update badge
+        const cartBadges = document.querySelectorAll('#cartBadge, .cart-badge');
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartBadges.forEach(badge => {
+            badge.textContent = totalItems;
+            badge.style.display = totalItems > 0 ? 'flex' : 'none';
+        });
+    }
+
+    // Add to cart button
+    document.getElementById('addToCartBtn').addEventListener('click', () => {
+        if (!currentProduct) return;
+        
+        if (!selectedColor) {
+            alert('Please select a color');
+            return;
+        }
+        
+        addToCart({
+            id: currentProduct.id,
+            name: currentProduct.name,
+            price: currentProduct.price,
+            image: currentProduct.images[0],
+            color: selectedColor,
+            quantity: 1
+        });
+        
+        updateCartCountDisplay();
+        
+        // Button feedback
+        const btn = document.getElementById('addToCartBtn');
+        btn.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            btn.style.transform = '';
+        }, 200);
+    });
+    
+    // Update cart count when color changes
+    const colorOptions = document.getElementById('colorOptions');
+    if (colorOptions) {
+        colorOptions.addEventListener('click', () => {
+            setTimeout(updateCartCountDisplay, 100);
+        });
+    }
+
+    // Update cart badge on load
+    (function updateInitialCartBadge() {
+        const cart = getCart();
+        const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        const cartBadges = document.querySelectorAll('#cartBadge, .cart-badge');
+        cartBadges.forEach(badge => {
+            badge.textContent = totalItems;
+            badge.style.display = totalItems > 0 ? 'flex' : 'none';
+        });
+    })();
+</script>
+</body>
+</html>
